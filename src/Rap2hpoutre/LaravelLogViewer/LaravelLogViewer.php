@@ -337,7 +337,7 @@ class LaravelLogViewer
         foreach ($array as $k => $v) {
             if (is_dir($k)) {
 
-                $exploded = explode("\\", $k);
+                $exploded = explode(DIRECTORY_SEPARATOR, $k);
                 $show = last($exploded);
 
                 echo '<div class="list-group folder">
@@ -353,9 +353,9 @@ class LaravelLogViewer
 
             } else {
 
-                $exploded = explode("\\", $v);
+                $exploded = explode(DIRECTORY_SEPARATOR, $v);
                 $show2 = last($exploded);
-                $folder = str_replace($storage_path, "", rtrim(str_replace($show2, "", $v), "\\"));
+                $folder = str_replace($storage_path, "", rtrim(str_replace($show2, "", $v), DIRECTORY_SEPARATOR));
                 $file = $v;
 
 
